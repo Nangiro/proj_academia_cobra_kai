@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+    --color-black: #171717;
+    --color-yellowlogo: #FEDB00;
+    --color-redlogo: #E40300;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    background-color: #171717;
+    /* background-image: url('/assets/CobraKailogo.png');
+    background-repeat: no-repeat;
+    background-position: center; */
+}
+
+.LogoContainer {
+    display: block;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.LoginSection {
+    text-align: center;
+    margin-top: 70px;
+}
+
+.LoginInput input {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    line-height: 21px;
+    margin-top: 10px;
+    width: 500px;
+    height: 40px;
+    padding-left: 10px;
+    border-radius: 20px;
+}
+
+
+button[type="button"] {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    line-height: 21px;
+    margin-top: 20px;
+    background-color: var(--color-yellowlogo);
+    width: 503px;
+    height: 40px;
+    border-radius: 20px;
+}
+
+.MenuButtons {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+.admin {
+    display: none;
+}
+
+.secretary {
+    display: none;
+}
+
+.cancelBt{
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    line-height: 21px;
+    margin-top: 20px;
+    width: 503px;
+    height: 40px;
+    border-radius: 20px;
+}
+
+.FormSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 70px;
+}
+
+.FormInput input{
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    line-height: 21px;
+    margin-top: 10px;
+    width: 500px;
+    height: 40px;
+    padding-left: 10px;
+    border-radius: 20px;
+}
+
+.FormInput h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    line-height: 21px;
+    color: var(--color-yellowlogo);
+    text-align: left;
+    margin-top: 20px;
+}
+
+/* =============== Check students =============== */
+.searchInput {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 70px;
+}
+
+.searchInput input{
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    line-height: 21px;
+    margin-top: 10px;
+    width: 500px;
+    height: 40px;
+    padding-left: 10px;
+    border-radius: 20px;
+}
+
+.content {
+    margin-top: 40px;
+    margin-left: 20px;
+}
+
+.content div{
+    margin-top: 32px;
+    margin-left: 20px;
+}
+
+.content h2{
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    line-height: 28px;
+    color: var(--color-yellowlogo);
+}
+
+.content p{
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    line-height: 21px;
+    color: #212121;
+    margin-top: 10px;
+    width: 490px;
+    height: 30;
+    padding-left: 10px;
+    padding-top: 5px;
+    border-radius: 20px;
+    background-color: white;
+
+}
+
+
+.HeaderContainer{
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    line-height: 21px;
+    color: var(--color-yellowlogo);
+    text-align: left;
+    margin-top: 24px;
+    margin-left: 96px;
+}

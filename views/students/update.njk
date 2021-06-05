@@ -1,0 +1,127 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/styles.css">
+        <title>Cobra Kai - Novo Adm</title>
+        <meta name="description" content="Cobra Kai - Novo Adm" />
+    </head>
+
+    <body>
+        <div class="HeaderContainer">
+            <h1>Consultar Usuário</h1>
+        </div>
+
+        <div class="searchInput">
+            <input 
+                    id="cpf_field"
+                    type="email" 
+                    name="cpf_field"
+                    placeholder="Digite o CPF do aluno. Ex: 111.222.333-44"
+            >
+            <button type="button" onclick="searchForStudentAndComplete()" >Buscar Aluno</button>
+        </div>
+        
+        <form class="FormSection" id="signupForm">
+            <div class="FormInput">
+                <h2>Nome:</h2>
+                <input 
+                    id="nameField"
+                    type="text" 
+                    name="nameField"
+                    placeholder="Exemplo: Rodrigo Takarashi"
+                    value=""
+                >
+            </div>
+            <div class="FormInput">
+                <h2>Endereço:</h2>
+                <input 
+                    id="enderecoField"
+                    type="text" 
+                    name="enderecoField"
+                    placeholder="Exemplo: Rua São Marcos, 32"
+                    value=""
+                >
+            </div>
+            <div class="FormInput">
+                <h2>Bairro:</h2>
+                <input 
+                    id="bairroField"
+                    type="text" 
+                    name="bairroField"
+                    placeholder="Exemplo: Jardim Paulista"
+                    value=""
+                >
+            </div>
+            <div class="FormInput">
+                <h2>CEP:</h2>
+                <input 
+                    id="cepField"
+                    type="text" 
+                    name="cepField"
+                    placeholder="Exemplo: xx.xxx-xxx"
+                    value=""
+                >
+            </div>
+            <div class="FormInput">
+                <h2>Número de contato:</h2>
+                <input 
+                    id="contatoField"
+                    type="text" 
+                    name="contatoField"
+                    placeholder="Exemplo: +5515997987678"
+                    value=""
+                >
+            </div>
+            <div class="FormInput">
+                <h2>Data de nascimento:</h2>
+                <input 
+                    id="nascField"
+                    type="text" 
+                    name="nascField"
+                    placeholder="Exemplo: 07/08/200"
+                    value=""
+                >
+            </div>
+            <div class="FormInput">
+                <h2>Faixa Atual:</h2>
+                <input 
+                    id="faixaField"
+                    type="text" 
+                    name="faixaField"
+                    placeholder="Exemplo: Marrom"
+                    value=""
+                >
+            </div>
+            <div class="FormInput">
+                <h2>Pacote:</h2>
+                <input 
+                    id="pacoteField"
+                    type="text" 
+                    name="pacoteField"
+                    placeholder="Exemplo: Pacote Platina"
+                    value=""
+                >
+            </div>
+            <button type="button" onclick="updateStudent()">Atualizar dados</button>
+            <button type="button" class="cancelBt" onclick='window.location.href = "/menu"'>Voltar ao menu</button>
+        </form>
+        
+        <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-functions.js"></script>
+
+        <script src="/scripts.js"></script>
+
+        <script>
+            auth.onAuthStateChanged(user =>{
+                if(!user){
+                    window.location.href = "/" 
+                }
+            })
+        </script>
+
+    </body>
+
+
+
+</html>

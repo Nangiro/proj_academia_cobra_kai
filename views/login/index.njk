@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/styles.css">
+        <title>Cobra Cai Login</title>
+        <meta name="description" content="Cobra Kai Login" />
+    </head>
+
+    <body>
+        <div class="LogoContainer">
+            <img src="assets/CobraKailogo.png" alt="Cobra Kai Logo">
+        </div>
+
+        <section class="LoginSection">
+            <div class="LoginInput">
+                <div>
+                    <input 
+                    id="email_field"
+                    type="email" 
+                    name="email"
+                    placeholder="Usuario: exemplo@meuemail.com.br"
+                    value=""
+                    >
+                </div>
+            </div>
+
+            <div class="LoginInput">
+                <div>
+                    <input 
+                    id="pwd_field"
+                    type="password" 
+                    name="pwd"
+                    placeholder="Senha: Minh@S3n#a17"
+                    value=""
+                    >
+                </div>
+            </div>
+
+            <button onclick="login()" type="button">Login</button>
+            
+        </section>
+
+        <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-functions.js"></script>
+
+        <script src="/scripts.js"></script>
+
+        <script>
+            auth.onAuthStateChanged(user =>{
+                if(user){
+                    user.getIdTokenResult().then(idTokenResult =>{
+                        user.admin = idTokenResult.claims.admin;
+                        user.secretary = idTokenResult.claims.secretary;
+                        if(user.admin || user.secretary) {
+                            window.location.href = "/menu" 
+                        } else{
+                            window.alert("Você não é um funcionário da Academia");
+                        }
+                    })
+                }
+            })
+        </script>
+        
+    </body>
+</html>

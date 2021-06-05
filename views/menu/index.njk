@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/styles.css">
+        <title>Cobra Kai Menu</title>
+        <meta name="description" content="Cobra Kai Menu" />
+    </head>
+
+    <body>
+        <div class="LogoContainer">
+            <img src="assets/CobraKailogo.png" alt="Cobra Kai Logo">
+        </div>
+
+        <div class="MenuButtons">
+            <button type="button" class="secretary" onclick='window.location.href = "/students/create"'>Cadastrar Aluno</button>
+
+            <button type="button" class="secretary" onclick='window.location.href = "/students/check"'>Consultar Aluno</button>
+
+            <button type="button" class="secretary" onclick='window.location.href = "/students/update"'>Atualizar Aluno</button>
+
+            <button type="button" class="secretary">Excluir Aluno</button>
+
+            <button type="button" class="secretary">Cadastrar Professor</button>
+
+            <button type="button" class="secretary">Consultar Professor</button>
+
+            <button type="button" class="secretary">Atualizar Professor</button>
+
+            {# So o admin #}
+            <button type="button" class="admin">Excluir Professor</button>
+
+            <button type="button" class="admin">Cadastrar Secretária</button>
+
+            <button type="button" class="admin">Atualizar Secretária</button>
+
+            <button type="button" class="admin">Excluir Secretária</button>
+
+            <button type="button" class="admin">Relatorio Financeiro</button>
+
+            <button type="button" class="admin">Relação de Clientes</button>
+
+            <button type="button" class="admin" onclick='window.location.href = "/menu/giveAdmRole"'>Criar novo Administrador</button>
+
+            <button type="button" class="admin" onclick = 'window.location.href = "/menu/giveSecretaryRole"'>Dar Direitos de Secretária</button>
+
+            <button onclick="logout()" type="button">Logout</button>
+        </div>
+        
+        
+
+        <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-functions.js"></script>
+        
+        <script src="/scripts.js"></script>
+
+        <script>
+            auth.onAuthStateChanged(user =>{
+                if(!user){
+                    window.location.href = "/" 
+                }
+            })
+        </script>
+
+    </body>
+
+
+
+</html>
