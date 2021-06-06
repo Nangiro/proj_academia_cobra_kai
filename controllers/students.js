@@ -9,3 +9,7 @@ exports.create = function(req,res) {
 exports.update = function(req,res) {
     return res.render("students/update")
 }
+
+exports.delete = function(req,res) {
+    return res.render("students/delete")
+}

@@ -18,5 +18,6 @@ routes.get('/menu/giveSecretaryRole', menu.giveSecretaryRole)
 routes.get('/students/check', students.check)
 routes.get('/students/create', students.create)
 routes.get('/students/update', students.update)
+routes.get('/students/delete', students.delete)
 
 module.exports = routes

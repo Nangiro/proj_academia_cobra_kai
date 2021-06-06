@@ -43,3 +43,15 @@ exports.addSecretaryRole = functions.https.onCall((data, context) => {
         return err;
     });
 });
+
+exports.deleteSt = functions.https.onCall((data, context) => {
+    
+    admin.auth().deleteUser(data.uid).then(() => {
+        return {
+            message: `Aluno excluido com sucesso!`
+        }
+    }).catch((err) => {
+        return err;
+    });
+
+});

@@ -263,6 +263,26 @@ var firebaseConfig = {
 
   }
 
+  function deleteStudent(){
+    var userCPF = document.getElementById("cpf_field").value;
+    const deleteSt = functions.httpsCallable('deleteSt');
+
+    db.collection('Alunos').where('cpf', '==', userCPF).get().then(snapshot => {
+      snapshot.docs.forEach(doc => {
+        var numUid = doc.data().uid;
+
+        deleteSt({uid: numUid}).then(result =>{
+          console.log(result);
+        })
+
+        db.collection('Alunos').doc(numUid).delete();
+      })
+    })
+
+    window.alert("Aluno excluido com sucesso!");
+  }
+
+
   //---------------------- Login Logout ----------------------
 
   // Listen for auth status changes
