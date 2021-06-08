@@ -1,0 +1,145 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/styles.css">
+        <title>Cobra Kai</title>
+        <meta name="description" content="Cobra Kai - Novo Adm" />
+    </head>
+
+    <body>
+        <div class="LogoContainer">
+            <img src="/assets/CobraKailogo.png" alt="Cobra Kai Logo">
+        </div>
+        
+        <form class="FormSection" id="signupForm">
+            <div class="FormInput">
+                <h2>Nome:</h2>
+                <input 
+                    id="nameField"
+                    type="text" 
+                    name="nameField"
+                    placeholder="Exemplo: Kesuke Miyagi"
+                >
+            </div>
+            <div class="FormInput">
+                <h2>Email:</h2>
+                <input 
+                    id="emailField"
+                    type="email" 
+                    name="emailField"
+                    placeholder="Exemplo: kesuke.miyagi@gmail.com"
+                >
+            </div>
+            <div class="FormInput">
+                <h2>RG:</h2>
+                <input 
+                    id="rgField"
+                    type="text" 
+                    name="rgField"
+                    placeholder="Exemplo: xx.xxx.xxx-x"
+                >
+            </div>
+            <div class="FormInput">
+                <h2>CPF:</h2>
+                <input 
+                    id="cpfField"
+                    type="text" 
+                    name="cpfField"
+                    placeholder="Exemplo: xxx.xxx.xxx-xx"
+                >
+            </div>
+            <div class="FormInput">
+                <h2>CNPJ:</h2>
+                <input 
+                    id="cnpjField"
+                    type="text" 
+                    name="cnpjField"
+                    placeholder="Exemplo: xx.xxx.xxx/0001-xx"
+                >
+            </div>
+            <div class="FormInput">
+                <h2>Carteira de Trabalho:</h2>
+                <input 
+                    id="cartDeTrabField"
+                    type="text" 
+                    name="cartDeTrabField"
+                    placeholder="Exemplo: XXXXX"
+                >
+            </div>
+            <div class="FormInput">
+                <h2>Endereço:</h2>
+                <input 
+                    id="enderecoField"
+                    type="text" 
+                    name="enderecoField"
+                    placeholder="Exemplo: Rua São Marcos, 32"
+                >
+            </div>
+            <div class="FormInput">
+                <h2>Bairro:</h2>
+                <input 
+                    id="bairroField"
+                    type="text" 
+                    name="bairroField"
+                    placeholder="Exemplo: Jardim Paulista"
+                >
+            </div>
+            <div class="FormInput">
+                <h2>CEP:</h2>
+                <input 
+                    id="cepField"
+                    type="text" 
+                    name="cepField"
+                    placeholder="Exemplo: xx.xxx-xxx"
+                >
+            </div>
+            <div class="FormInput">
+                <h2>Número de contato:</h2>
+                <input 
+                    id="contatoField"
+                    type="text" 
+                    name="contatoField"
+                    placeholder="Exemplo: +5515997987678"
+                >
+            </div>
+            <div class="FormInput">
+                <h2>Data de nascimento:</h2>
+                <input 
+                    id="nascField"
+                    type="text" 
+                    name="nascField"
+                    placeholder="Exemplo: 09/06/1925"
+                >
+            </div>
+            <div class="FormInput">
+                <h2>Faixa:</h2>
+                <input 
+                    id="faixaField"
+                    type="text" 
+                    name="faixaField"
+                    placeholder="Exemplo: Preta"
+                >
+            </div>
+
+            <button type="button" onclick="createNewTeacher()">Cadastrar</button>
+            <button type="button" class="cancelBt" onclick='window.location.href = "/menu"'>Cancelar</button>
+        </form>
+
+        
+        <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-functions.js"></script>
+
+        <script src="/scripts.js"></script>
+
+        <script>
+            auth.onAuthStateChanged(user =>{
+                if(!user){
+                    window.location.href = "/" 
+                }
+            })
+        </script>
+
+    </body>
+
+</html>

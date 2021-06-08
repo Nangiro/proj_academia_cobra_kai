@@ -347,3 +347,29 @@ var firebaseConfig = {
     })
   }
 
+// ---------------------- TEACHERS ----------------------
+
+function createNewTeacher() {
+  const signupForm = document.querySelector('#signupForm');
+
+  db.collection('Professores').doc().set({
+    nome: signupForm['nameField'].value,
+    email: signupForm['emailField'].value,
+    rg: signupForm['rgField'].value,
+    cpf: signupForm['cpfField'].value,
+    cnpj: signupForm['cnpjField'].value,
+    carteiraTrabalho: signupForm['cartDeTrabField'].value,
+    endereco: signupForm['enderecoField'].value,
+    bairro: signupForm['bairroField'].value,
+    cep: signupForm['cepField'].value,
+    numerocontato: signupForm['contatoField'].value,
+    datanascimento: signupForm['nascField'].value,
+    faixaatual: signupForm['faixaField'].value,
+
+  }).then(()=>{
+    window.alert("Professor(a) Cadastrado(a) com Sucesso!");
+    setTimeout(() => {
+      window.location.href = "/"
+  }, 2500);
+  })
+}
