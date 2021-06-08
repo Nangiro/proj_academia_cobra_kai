@@ -578,3 +578,5 @@ function updateStudent() {
   })
 
 }
+
+// ---------------------- SECRETARIES ----------------------
