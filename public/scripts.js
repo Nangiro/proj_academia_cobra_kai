@@ -373,3 +373,137 @@ function createNewTeacher() {
   }, 2500);
   })
 }
+
+function renderTeacher(doc) {
+  let div1 = document.createElement('div');
+  let title1 = document.createElement('h2');
+  let field1 = document.createElement('p')
+
+  title1.textContent = "Nome"
+  field1.textContent = doc.data().nome;
+
+  div1.appendChild(title1);
+  div1.appendChild(field1);
+
+  studentList.appendChild(div1);
+
+  let div2 = document.createElement('div');
+  let title2 = document.createElement('h2');
+  let field2 = document.createElement('p')
+
+  title2.textContent = "Email"
+  field2.textContent = doc.data().email;
+
+  div2.appendChild(title2);
+  div2.appendChild(field2);
+
+  studentList.appendChild(div2);
+
+  let div3 = document.createElement('div');
+  let title3 = document.createElement('h2');
+  let field3 = document.createElement('p')
+
+  title3.textContent = "RG"
+  field3.textContent = doc.data().rg;
+
+  div3.appendChild(title3);
+  div3.appendChild(field3);
+
+  studentList.appendChild(div3);
+
+  let div4 = document.createElement('div');
+  let title4 = document.createElement('h2');
+  let field4 = document.createElement('p')
+
+  title4.textContent = "CPF"
+  field4.textContent = doc.data().cpf;
+
+  div4.appendChild(title4);
+  div4.appendChild(field4);
+
+  studentList.appendChild(div4);
+
+  let div5 = document.createElement('div');
+  let title5 = document.createElement('h2');
+  let field5 = document.createElement('p')
+
+  title5.textContent = "Endereço"
+  field5.textContent = doc.data().endereco;
+
+  div5.appendChild(title5);
+  div5.appendChild(field5);
+
+  studentList.appendChild(div5);
+
+  let div6 = document.createElement('div');
+  let title6 = document.createElement('h2');
+  let field6 = document.createElement('p')
+
+  title6.textContent = "Bairro"
+  field6.textContent = doc.data().bairro;
+
+  div6.appendChild(title6);
+  div6.appendChild(field6);
+
+  studentList.appendChild(div6);
+
+  let div7 = document.createElement('div');
+  let title7 = document.createElement('h2');
+  let field7 = document.createElement('p')
+
+  title7.textContent = "CEP"
+  field7.textContent = doc.data().cep;
+
+  div7.appendChild(title7);
+  div7.appendChild(field7);
+
+  studentList.appendChild(div7);
+
+  let div8 = document.createElement('div');
+  let title8 = document.createElement('h2');
+  let field8 = document.createElement('p')
+
+  title8.textContent = "Número de contato"
+  field8.textContent = doc.data().numerocontato;
+
+  div8.appendChild(title8);
+  div8.appendChild(field8);
+
+  studentList.appendChild(div8);
+
+  let div9 = document.createElement('div');
+  let title9 = document.createElement('h2');
+  let field9 = document.createElement('p')
+
+  title9.textContent = "Data de nascimento"
+  field9.textContent = doc.data().datanascimento;
+
+  div9.appendChild(title9);
+  div9.appendChild(field9);
+
+  studentList.appendChild(div9);
+
+  let div10 = document.createElement('div');
+  let title10 = document.createElement('h2');
+  let field10 = document.createElement('p')
+
+  title10.textContent = "Faixa atual"
+  field10.textContent = doc.data().faixaatual;
+
+  div10.appendChild(title10);
+  div10.appendChild(field10);
+
+  studentList.appendChild(div10);
+
+}
+
+function searchForTeacher () {
+  //Getting info from Alunos
+  var userCPF = document.getElementById("cpf_field").value;
+
+  db.collection('Professores').where('cpf', '==', userCPF).get().then(snapshot => {
+    snapshot.docs.forEach(doc => {
+      renderTeacher(doc);
+    })
+  })
+}

@@ -23,5 +23,6 @@ routes.get('/students/delete', students.delete)
 
 
 routes.get('/teachers/create', teachers.create)
+routes.get('/teachers/check', teachers.check)
 
 module.exports = routes
