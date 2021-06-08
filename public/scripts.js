@@ -352,7 +352,7 @@ var firebaseConfig = {
 function createNewTeacher() {
   const signupForm = document.querySelector('#signupForm');
 
-  db.collection('Professores').doc().set({
+  db.collection('Professores').doc(signupForm['cpfField'].value).set({
     nome: signupForm['nameField'].value,
     email: signupForm['emailField'].value,
     rg: signupForm['rgField'].value,
@@ -505,5 +505,22 @@ function searchForTeacher () {
     snapshot.docs.forEach(doc => {
       renderTeacher(doc);
     })
+  })
+}
+
+function deleteTeacher(){
+  console.log("Aqui1")
+  var userCPF = document.getElementById("cpf_field").value;
+
+  db.collection('Professores').where('cpf', '==', userCPF).get().then(snapshot => {
+    snapshot.docs.forEach(doc => {
+      var numUid = doc.data().cpf;
+      db.collection('Professores').doc(numUid).delete();
+    })
+  }).then(()=>{
+    window.alert("Professor(a) Excluido(a) com Sucesso!");
+    setTimeout(() => {
+      window.location.href = "/"
+    }, 2500);
   })
 }
