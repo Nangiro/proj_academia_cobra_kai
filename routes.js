@@ -24,7 +24,7 @@ routes.get('/students/delete', students.delete)
 
 routes.get('/teachers/create', teachers.create)
 routes.get('/teachers/check', teachers.check)
-
+routes.get('/teachers/update', teachers.update)
 routes.get('/teachers/delete', teachers.delete)
 
 module.exports = routes

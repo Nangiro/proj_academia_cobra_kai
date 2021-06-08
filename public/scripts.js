@@ -524,3 +524,57 @@ function deleteTeacher(){
     }, 2500);
   })
 }
+
+function searchForTeacherAndComplete () {
+  var userCPF = document.getElementById("cpf_field").value;
+
+  db.collection('Professores').where('cpf', '==', userCPF).get().then(snapshot => {
+    snapshot.docs.forEach(doc => {
+      document.getElementById("nameField").value= doc.data().nome;
+      document.getElementById("emailField").value= doc.data().email;
+      document.getElementById("rgField").value= doc.data().rg;
+      document.getElementById("cpfField").value= doc.data().cpf;
+      document.getElementById("cnpjField").value= doc.data().cnpj;
+      document.getElementById("cartDeTrabField").value= doc.data().carteiraTrabalho;
+      document.getElementById("enderecoField").value= doc.data().endereco;
+      document.getElementById("bairroField").value= doc.data().bairro;
+      document.getElementById("cepField").value= doc.data().cep;
+      document.getElementById("contatoField").value= doc.data().numerocontato;
+      document.getElementById("nascField").value= doc.data().datanascimento;
+      document.getElementById("faixaField").value= doc.data().faixaatual;
+    })
+  })
+}
+
+function updateStudent() {
+  const signupForm = document.querySelector('#signupForm');
+  var userCPF = document.getElementById("cpf_field").value;
+
+  db.collection('Professores').where('cpf', '==', userCPF).get().then(snapshot => {
+    snapshot.docs.forEach(doc => {
+      var numUid = userCPF;
+
+      db.collection('Professores').doc(numUid).update({
+        bairro: signupForm['bairroField'].value,
+        carteiraTrabalho: signupForm['cartDeTrabField'].value,
+        cep: signupForm['cepField'].value,
+        cnpj: signupForm['cnpjField'].value,
+        cpf: signupForm['cpfField'].value,
+        datanascimento: signupForm['nascField'].value,
+        email: signupForm['emailField'].value,
+        endereco: signupForm['enderecoField'].value,
+        faixaatual: signupForm['faixaField'].value,
+        nome: signupForm['nameField'].value,
+        numerocontato: signupForm['contatoField'].value,
+        rg: signupForm['rgField'].value,
+      })
+
+    })
+  }).then(()=>{
+    window.alert("Dados atualizados com sucesso");
+    setTimeout(() => {
+      window.location.href = "/"
+    }, 2500);
+  })
+
+}
