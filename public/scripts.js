@@ -260,7 +260,6 @@ var firebaseConfig = {
     }).then(()=>{
       window.alert("Dados atualizados com sucesso");
     })
-
   }
 
   function deleteStudent(){
@@ -767,4 +766,45 @@ function deleteSecretary(){
   setTimeout(() => {
     window.location.reload();
   }, 2500);
+}
+
+function searchForSecretaryAndComplete () {
+  var userCPF = document.getElementById("cpf_field").value;
+
+  db.collection('Secretarias').where('cpf', '==', userCPF).get().then(snapshot => {
+    snapshot.docs.forEach(doc => {
+      document.getElementById("nameField").value= doc.data().nome;
+      document.getElementById("enderecoField").value= doc.data().endereco;
+      document.getElementById("bairroField").value= doc.data().bairro;
+      document.getElementById("cepField").value= doc.data().cep;
+      document.getElementById("contatoField").value= doc.data().numerocontato;
+      document.getElementById("nascField").value= doc.data().datanascimento;
+    })
+  })
+}
+
+function updateSecretary() {
+  const signupForm = document.querySelector('#signupForm');
+  var userCPF = document.getElementById("cpf_field").value;
+
+  db.collection('Secretarias').where('cpf', '==', userCPF).get().then(snapshot => {
+    snapshot.docs.forEach(doc => {
+      var numUid = doc.data().uid;
+
+      db.collection('Secretarias').doc(numUid).update({
+        nome: signupForm['nameField'].value,
+        endereco: signupForm['enderecoField'].value,
+        bairro: signupForm['bairroField'].value,
+        cep: signupForm['cepField'].value,
+        numerocontato: signupForm['contatoField'].value,
+        datanascimento: signupForm['nascField'].value,
+      })
+
+    })
+  }).then(()=>{
+    window.alert("Dados atualizados com sucesso");
+    setTimeout(() => {
+      window.location.href = "/menu"
+    }, 2500);
+  })
 }
