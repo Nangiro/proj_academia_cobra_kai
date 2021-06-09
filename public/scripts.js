@@ -265,21 +265,23 @@ var firebaseConfig = {
 
   function deleteStudent(){
     var userCPF = document.getElementById("cpf_field").value;
-    const deleteSt = functions.httpsCallable('deleteSt');
+    const deleteUser = functions.httpsCallable('deleteUser');
 
     db.collection('Alunos').where('cpf', '==', userCPF).get().then(snapshot => {
       snapshot.docs.forEach(doc => {
         var numUid = doc.data().uid;
 
-        deleteSt({uid: numUid}).then(result =>{
+        deleteUser({uid: numUid}).then(result =>{
           console.log(result);
         })
 
         db.collection('Alunos').doc(numUid).delete();
       })
     })
-
     window.alert("Aluno excluido com sucesso!");
+    setTimeout(() => {
+      window.location.reload();
+    }, 2500);
   }
 
 
@@ -743,4 +745,26 @@ function searchForSecretary () {
       renderSecretary(doc);
     })
   })
+}
+
+function deleteSecretary(){
+  var userCPF = document.getElementById("cpf_field").value;
+  const deleteUser = functions.httpsCallable('deleteUser');
+
+  db.collection('Secretarias').where('cpf', '==', userCPF).get().then(snapshot => {
+    snapshot.docs.forEach(doc => {
+      var numUid = doc.data().uid;
+
+      deleteUser({uid: numUid}).then(result =>{
+        console.log(result);
+      })
+
+      db.collection('Secretarias').doc(numUid).delete();
+    })
+  })
+
+  window.alert("Secretaria excluida com sucesso!");
+  setTimeout(() => {
+    window.location.reload();
+  }, 2500);
 }

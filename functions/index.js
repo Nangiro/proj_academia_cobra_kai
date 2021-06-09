@@ -44,11 +44,11 @@ exports.addSecretaryRole = functions.https.onCall((data, context) => {
     });
 });
 
-exports.deleteSt = functions.https.onCall((data, context) => {
+exports.deleteUser = functions.https.onCall((data, context) => {
     
     admin.auth().deleteUser(data.uid).then(() => {
         return {
-            message: `Aluno excluido com sucesso!`
+            message: `Usuario excluido com sucesso!`
         }
     }).catch((err) => {
         return err;
