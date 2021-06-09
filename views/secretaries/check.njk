@@ -1,28 +1,29 @@
 <html>
     <head>
         <link rel="stylesheet" href="/styles.css">
-        <title>Cobra Kai</title>
+        <title>Cobra Kai - Checar Secretaria</title>
         <meta name="description" content="Cobra Kai - Novo Adm" />
     </head>
 
     <body>
-        <div class="LogoContainer">
-            <img src="/assets/CobraKailogo.png" alt="Cobra Kai Logo">
+        <div class="HeaderContainer">
+            <h1>Consultar Secretaria</h1>
+        </div>
+
+        <div class="searchInput">
+            <input 
+                    id="cpf_field"
+                    type="email" 
+                    name="cpf_field"
+                    placeholder="Digite o CPF do aluno. Ex: 111.222.333-44"
+            >
+                <button type="button" onclick="searchForSecretary()">Buscar Secretaria</button>
+                <button type="button" class="cancelBt" onclick='window.location.href = "/menu"'>Voltar ao menu</button>
         </div>
         
-        <section class="LoginSection">
-            <div class="LoginInput">
-                <input 
-                    id="emailField"
-                    type="email" 
-                    name="emailField"
-                    placeholder="Usuario: exemplo@meuemail.com.br"
-                    value=""
-                >
-            </div>
-            <button type="button" onclick="addSecretaryRole()">Transformar em Secretária</button>
-        </section>
-        <a href="/menu" class="cancelBt">Cancelar</a>
+        <div class="content">
+            <form id="studentForm"></form>
+        </div>
         
         <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-auth.js"></script>

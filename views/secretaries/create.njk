@@ -1,23 +1,13 @@
 <html>
     <head>
         <link rel="stylesheet" href="/styles.css">
-        <title>Cobra Kai</title>
+        <title>Cobra Kai - Cadastro de Secretaria</title>
         <meta name="description" content="Cobra Kai - Novo Adm" />
     </head>
 
     <body>
-        <div class="HeaderContainer">
-            <h1>Atualizar dados do Professor</h1>
-        </div>
-
-        <div class="searchInput">
-            <input 
-                    id="cpf_field"
-                    type="email" 
-                    name="cpf_field"
-                    placeholder="Digite o CPF do aluno. Ex: 111.222.333-44"
-            >
-            <button type="button" onclick="searchForTeacherAndComplete()" >Buscar Aluno</button>
+        <div class="LogoContainer">
+            <img src="/assets/CobraKailogo.png" alt="Cobra Kai Logo">
         </div>
         
         <form class="FormSection" id="signupForm">
@@ -28,17 +18,24 @@
                     type="text" 
                     name="nameField"
                     placeholder="Exemplo: Rodrigo Takarashi"
-                    value=""
                 >
             </div>
             <div class="FormInput">
                 <h2>Email:</h2>
                 <input 
                     id="emailField"
-                    type="text" 
+                    type="email" 
                     name="emailField"
-                    placeholder="Exemplo: professor@professor.com.br"
-                    value=""
+                    placeholder="Exemplo: rodrigo.takarashi@gmail.com"
+                >
+            </div>
+            <div class="FormInput">
+                <h2>Senha:</h2>
+                <input 
+                    id="pswField"
+                    type="password" 
+                    name="pswField"
+                    placeholder="Exemplo: $3m_$3nha87"
                 >
             </div>
             <div class="FormInput">
@@ -47,8 +44,7 @@
                     id="rgField"
                     type="text" 
                     name="rgField"
-                    placeholder="Exemplo: 11.222.333-4"
-                    value=""
+                    placeholder="Exemplo: xx.xxx.xxx-x"
                 >
             </div>
             <div class="FormInput">
@@ -57,18 +53,7 @@
                     id="cpfField"
                     type="text" 
                     name="cpfField"
-                    placeholder="Exemplo: 111.222.333-44"
-                    value=""
-                >
-            </div>
-            <div class="FormInput">
-                <h2>CNPJ:</h2>
-                <input 
-                    id="cnpjField"
-                    type="text" 
-                    name="cnpjField"
-                    placeholder="Exemplo: xx.xxx.xxx/0001-xx"
-                    value=""
+                    placeholder="Exemplo: xxx.xxx.xxx-xx"
                 >
             </div>
             <div class="FormInput">
@@ -77,8 +62,7 @@
                     id="cartDeTrabField"
                     type="text" 
                     name="cartDeTrabField"
-                    placeholder="Exemplo: xx"
-                    value=""
+                    placeholder="Exemplo: xxxxx"
                 >
             </div>
             <div class="FormInput">
@@ -88,7 +72,6 @@
                     type="text" 
                     name="enderecoField"
                     placeholder="Exemplo: Rua São Marcos, 32"
-                    value=""
                 >
             </div>
             <div class="FormInput">
@@ -98,7 +81,6 @@
                     type="text" 
                     name="bairroField"
                     placeholder="Exemplo: Jardim Paulista"
-                    value=""
                 >
             </div>
             <div class="FormInput">
@@ -108,7 +90,6 @@
                     type="text" 
                     name="cepField"
                     placeholder="Exemplo: xx.xxx-xxx"
-                    value=""
                 >
             </div>
             <div class="FormInput">
@@ -118,7 +99,6 @@
                     type="text" 
                     name="contatoField"
                     placeholder="Exemplo: +5515997987678"
-                    value=""
                 >
             </div>
             <div class="FormInput">
@@ -127,24 +107,14 @@
                     id="nascField"
                     type="text" 
                     name="nascField"
-                    placeholder="Exemplo: 07/08/200"
-                    value=""
-                >
-            </div>
-            <div class="FormInput">
-                <h2>Faixa Atual:</h2>
-                <input 
-                    id="faixaField"
-                    type="text" 
-                    name="faixaField"
-                    placeholder="Exemplo: Marrom"
-                    value=""
+                    placeholder="Exemplo: 07/08/2000"
                 >
             </div>
 
-            <button type="button" onclick="updateTeachers()">Atualizar dados</button>
-            <button type="button" class="cancelBt" onclick='window.location.href = "/menu"'>Voltar ao menu</button>
+            <button type="button" onclick="createNewSecretary()">Cadastrar</button>
+            <button type="button" class="cancelBt" onclick='window.location.href = "/menu"'>Cancelar</button>
         </form>
+
         
         <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-auth.js"></script>
@@ -162,7 +132,5 @@
         </script>
 
     </body>
-
-
 
 </html>

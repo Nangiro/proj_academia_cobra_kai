@@ -339,11 +339,13 @@ var firebaseConfig = {
   }
 
   function addSecretaryRole(){
-    const secretaryEmail = document.querySelector('#email_field').value;
+    const secretaryEmail = document.querySelector('#emailField').value;
     const addSecretaryRole = functions.httpsCallable('addSecretaryRole');
 
     addSecretaryRole({email: secretaryEmail}).then(result => {
       console.log(result);
+      window.alert("Direitos de secretarias concedidos!")
+      window.location.href = "/"
     })
   }
 
@@ -546,7 +548,7 @@ function searchForTeacherAndComplete () {
   })
 }
 
-function updateStudent() {
+function updateTeachers() {
   const signupForm = document.querySelector('#signupForm');
   var userCPF = document.getElementById("cpf_field").value;
 
@@ -580,3 +582,165 @@ function updateStudent() {
 }
 
 // ---------------------- SECRETARIES ----------------------
+
+function createNewSecretary() {
+  const signupForm = document.querySelector('#signupForm');
+
+  const email = signupForm['emailField'].value;
+  const password = signupForm['pswField'].value;
+
+  auth.createUserWithEmailAndPassword(email, password).then(cred => {
+    return db.collection('Secretarias').doc(cred.user.uid).set({
+      nome: signupForm['nameField'].value,
+      email: signupForm['emailField'].value,
+      rg: signupForm['rgField'].value,
+      cpf: signupForm['cpfField'].value,
+      carteiraTrabalho: signupForm['cartDeTrabField'].value,
+      endereco: signupForm['enderecoField'].value,
+      bairro: signupForm['bairroField'].value,
+      cep: signupForm['cepField'].value,
+      numerocontato: signupForm['contatoField'].value,
+      datanascimento: signupForm['nascField'].value,
+      uid: cred.user.uid,
+    })
+  }).then(()=> {
+    auth.signOut().then(() => {
+      window.alert("Necessario Liberacao pelo Administrador");
+      window.location.href = "/"
+    }) 
+  })
+}
+
+function renderSecretary(doc) {
+  let div1 = document.createElement('div');
+  let title1 = document.createElement('h2');
+  let field1 = document.createElement('p')
+
+  title1.textContent = "Nome"
+  field1.textContent = doc.data().nome;
+
+  div1.appendChild(title1);
+  div1.appendChild(field1);
+
+  studentList.appendChild(div1);
+
+  let div2 = document.createElement('div');
+  let title2 = document.createElement('h2');
+  let field2 = document.createElement('p')
+
+  title2.textContent = "Email"
+  field2.textContent = doc.data().email;
+
+  div2.appendChild(title2);
+  div2.appendChild(field2);
+
+  studentList.appendChild(div2);
+
+  let div3 = document.createElement('div');
+  let title3 = document.createElement('h2');
+  let field3 = document.createElement('p')
+
+  title3.textContent = "RG"
+  field3.textContent = doc.data().rg;
+
+  div3.appendChild(title3);
+  div3.appendChild(field3);
+
+  studentList.appendChild(div3);
+
+  let div4 = document.createElement('div');
+  let title4 = document.createElement('h2');
+  let field4 = document.createElement('p')
+
+  title4.textContent = "CPF"
+  field4.textContent = doc.data().cpf;
+
+  div4.appendChild(title4);
+  div4.appendChild(field4);
+
+  studentList.appendChild(div4);
+
+  let div5 = document.createElement('div');
+  let title5 = document.createElement('h2');
+  let field5 = document.createElement('p')
+
+  title5.textContent = "Carteira de Trabalho"
+  field5.textContent = doc.data().carteiraTrabalho;
+
+  div5.appendChild(title5);
+  div5.appendChild(field5);
+
+  studentList.appendChild(div5);
+
+  let div6 = document.createElement('div');
+  let title6 = document.createElement('h2');
+  let field6 = document.createElement('p')
+
+  title6.textContent = "Endereço"
+  field6.textContent = doc.data().endereco;
+
+  div6.appendChild(title6);
+  div6.appendChild(field6);
+
+  studentList.appendChild(div6);
+
+  let div7 = document.createElement('div');
+  let title7 = document.createElement('h2');
+  let field7 = document.createElement('p')
+
+  title7.textContent = "Bairro"
+  field7.textContent = doc.data().bairro;
+
+  div7.appendChild(title7);
+  div7.appendChild(field7);
+
+  studentList.appendChild(div7);
+
+  let div8 = document.createElement('div');
+  let title8 = document.createElement('h2');
+  let field8 = document.createElement('p')
+
+  title8.textContent = "CEP"
+  field8.textContent = doc.data().cep;
+
+  div8.appendChild(title8);
+  div8.appendChild(field8);
+
+  studentList.appendChild(div8);
+
+  let div9 = document.createElement('div');
+  let title9 = document.createElement('h2');
+  let field9 = document.createElement('p')
+
+  title9.textContent = "Número de contato"
+  field9.textContent = doc.data().numerocontato;
+
+  div9.appendChild(title9);
+  div9.appendChild(field9);
+
+  studentList.appendChild(div9);
+
+  let div10 = document.createElement('div');
+  let title10 = document.createElement('h2');
+  let field10 = document.createElement('p')
+
+  title10.textContent = "Data de nascimento"
+  field10.textContent = doc.data().datanascimento;
+
+  div10.appendChild(title10);
+  div10.appendChild(field10);
+
+  studentList.appendChild(div10);
+
+}
+
+function searchForSecretary () {
+  //Getting info from Alunos
+  var userCPF = document.getElementById("cpf_field").value;
+
+  db.collection('Secretarias').where('cpf', '==', userCPF).get().then(snapshot => {
+    snapshot.docs.forEach(doc => {
+      renderSecretary(doc);
+    })
+  })
+}
