@@ -808,3 +808,56 @@ function updateSecretary() {
     }, 2500);
   })
 }
+
+// ---------------------- RELATORIO FINANCEIRO ----------------------
+
+function testeFinanceiro() {
+
+  var countNewStudents = 0;
+  var countAllStudents = 0;
+
+  var currentDate = new Date();
+  var currentMonth = currentDate.getMonth();
+
+  db.collection('Alunos').get().then((snapshot)=> {
+    snapshot.docs.forEach(doc => {
+      let stJoinSeconds = doc.data().datainicio.seconds;
+      let date = new Date(1970,0,1);
+      date.setSeconds(stJoinSeconds);
+      let stMonth = date.getMonth();
+
+      ++countAllStudents;
+
+      if(currentMonth == stMonth){
+        ++countNewStudents;
+      }
+    })
+
+    const NumberOfCustomers = document.querySelector('#NumberOfCustomers');
+
+    let div1 = document.createElement('div');
+    let title1 = document.createElement('h2');
+    let field1 = document.createElement('p')
+  
+    title1.textContent = "Alunos matriculados nesse mes:"
+    field1.textContent = countNewStudents;
+  
+    div1.appendChild(title1);
+    div1.appendChild(field1);
+  
+    NumberOfCustomers.appendChild(div1);
+
+    let div2 = document.createElement('div');
+    let title2 = document.createElement('h2');
+    let field2 = document.createElement('p')
+  
+    title2.textContent = "Total de alunos matriculados:"
+    field2.textContent = countAllStudents;
+  
+    div2.appendChild(title2);
+    div2.appendChild(field2);
+  
+    NumberOfCustomers.appendChild(div2);
+
+  })
+}

@@ -6,6 +6,8 @@ const menu = require('./controllers/menu')
 const students = require('./controllers/students')
 const teachers = require('./controllers/teachers')
 const secretaries = require('./controllers/secretaries')
+const financial = require('./controllers/financial')
+const customers = require('./controllers/customers')
 
 routes.get('/', function(req,res) {
     return res.redirect("/login")
@@ -32,5 +34,9 @@ routes.get('/secretaries/create', secretaries.create)
 routes.get('/secretaries/check', secretaries.check)
 routes.get('/secretaries/update', secretaries.update)
 routes.get('/secretaries/delete', secretaries.delete)
+
+routes.get('/financial', financial.index)
+
+routes.get('/customers', customers.index)
 
 module.exports = routes
