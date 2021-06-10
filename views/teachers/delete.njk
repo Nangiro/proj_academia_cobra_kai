@@ -10,26 +10,28 @@
             Excluir professor
         </div>
 
-        <div class="searchInput">
-            <input 
-                    id="cpf_field"
-                    type="email" 
-                    name="cpf_field"
-                    placeholder="Digite o CPF do aluno. Ex: 111.222.333-44"
-            >
-                <button type="button" onclick="searchForTeacher()">Buscar Professor</button>
-                <button type="button" class="cancelBt" onclick='window.location.href = "/menu"'>Voltar ao Menu</button>
+        <div class="addbg">
+            <div class="searchInput">
+                <input 
+                        id="cpf_field"
+                        type="email" 
+                        name="cpf_field"
+                        placeholder="Digite o CPF do aluno. Ex: 111.222.333-44"
+                >
+                    <button type="button" onclick="searchForTeacher()">Buscar Professor</button>
+                    <button type="button" class="cancelBt" onclick='window.location.href = "/menu"'>Voltar ao Menu</button>
+            </div>
+            
+            <div class="content">
+                <form id="studentForm"></form>
+
+            </div>
+
+            <div class="botbt">
+                <button type="button" class="deleteBt" onclick="deleteTeacher()">Excluir Professor</button>
+            </div>        
         </div>
         
-        <div class="content">
-            <form id="studentForm"></form>
-
-        </div>
-
-        <div class="botbt">
-            <button type="button" class="deleteBt" onclick="deleteTeacher()">Excluir Professor</button>
-        </div>        
-
         <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-auth.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-firestore.js"></script>

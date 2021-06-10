@@ -39,6 +39,7 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     width: 1200px;
+    min-height: 500px;
 }
 
 /* -------------- LOGIN -------------- */
@@ -161,9 +162,9 @@ button[type="button"] {
 
 .content {
     margin-top: 40px;
-    background-image: url('/assets/CobraKai035.png');
+    /* background-image: url('/assets/CobraKai035.png');
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: center; */
 }
 
 .content div{
@@ -209,10 +210,10 @@ button[type="button"] {
     color: var(--color-yellowlogo);
     margin-top: 20px;
     margin-left: 20px;
-    background-image: url('/assets/CobraKai035.png');
+    /* background-image: url('/assets/CobraKai035.png');
     background-repeat: no-repeat;
     background-position: center;
-    width: 1200px;
+    width: 1200px; */
 }
 
 .NumberOfCustomers h2{

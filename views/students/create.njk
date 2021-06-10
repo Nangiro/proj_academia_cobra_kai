@@ -6,11 +6,12 @@
     </head>
 
     <body>
-        <div class="PageTitle">
-            Cadastrar novo aluno
-        </div>
-
         <div class="addBg">
+
+            <div class="PageTitle">
+                Cadastrar novo aluno
+            </div>
+
             <form class="FormSection" id="signupForm">
                 <div class="FormInput">
                     <h2>Nome:</h2>
@@ -120,15 +121,13 @@
                         placeholder="Exemplo: Pacote Platina"
                     >
                 </div>
-
             </form>
-            <div class="botbt">
-                <button type="button" onclick="createNewStudent()">Cadastrar</button>
-                <button type="button" class="cancelBt" onclick='window.location.href = "/menu"'>Cancelar</button>
-            </div>
-        
         </div>
         
+        <div class="botbt">
+            <button type="button" onclick="createNewStudent()">Cadastrar</button>
+            <button type="button" class="cancelBt" onclick='window.location.href = "/menu"'>Cancelar</button>
+        </div>
         
         <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-auth.js"></script>

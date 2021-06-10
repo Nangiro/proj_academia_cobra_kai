@@ -6,25 +6,28 @@
     </head>
 
     <body>
+        
         <div class="PageTitle">
             Consultar aluno
         </div>
+        
+        <div class="addbg">
+            <div class="searchInput">
+                <input 
+                        id="cpf_field"
+                        type="email" 
+                        name="cpf_field"
+                        placeholder="Digite o CPF do aluno. Ex: 111.222.333-44"
+                >
+                    <button type="button" onclick="searchForStudent()">Buscar Aluno</button>
+                    <button type="button" class="cancelBt" onclick='window.location.href = "/menu"'>Voltar ao Menu</button>
+            </div>
+            
+            <div class="content">
+                <form id="studentForm"></form>
+            </div>
+        </div>
 
-        <div class="searchInput">
-            <input 
-                    id="cpf_field"
-                    type="email" 
-                    name="cpf_field"
-                    placeholder="Digite o CPF do aluno. Ex: 111.222.333-44"
-            >
-                <button type="button" onclick="searchForStudent()">Buscar Aluno</button>
-                <button type="button" class="cancelBt" onclick='window.location.href = "/menu"'>Voltar ao Menu</button>
-        </div>
-        
-        <div class="content">
-            <form id="studentForm"></form>
-        </div>
-        
         <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-auth.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-firestore.js"></script>
