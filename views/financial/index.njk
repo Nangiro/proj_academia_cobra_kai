@@ -1,7 +1,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="/styles.css">
-        <title>Cobra Kai - Relatório Financeiro</title>
+        <title>Cobra Kai - Relação de Clientes</title>
         <meta name="description" content="Cobra Kai - Novo Adm" />
     </head>
 
@@ -9,8 +9,11 @@
         <div class="LogoContainer">
             <img src="/assets/CobraKailogo.png" alt="Cobra Kai Logo">
         </div>
-        
 
+        <div class="NumberOfCustomers" id="NumberOfCustomers">
+        </div>
+        
+        <button type="button" class="cancelBt" onclick='window.location.href = "/menu"'>Voltar ao menu</button>
         
         <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-auth.js"></script>
@@ -25,6 +28,10 @@
                     window.location.href = "/" 
                 }
             })
+        </script>
+
+        <script>
+            window.onload = financialStatements();
         </script>
 
     </body>

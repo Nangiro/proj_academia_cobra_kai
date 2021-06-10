@@ -809,9 +809,9 @@ function updateSecretary() {
   })
 }
 
-// ---------------------- RELATORIO FINANCEIRO ----------------------
+// ---------------------- RELAÇÃO DE CLIENTES ----------------------
 
-function testeFinanceiro() {
+function knowClientList() {
 
   var countNewStudents = 0;
   var countAllStudents = 0;
@@ -858,6 +858,91 @@ function testeFinanceiro() {
     div2.appendChild(field2);
   
     NumberOfCustomers.appendChild(div2);
+
+  })
+}
+
+// ---------------------- RELATORIO FINANCEIRO ----------------------
+
+function financialStatements() {
+
+  var basicPlan = 0;
+  var goldPlan = 0;
+  var platinunPlan = 0;
+
+
+  db.collection('Alunos').get().then((snapshot)=> {
+    snapshot.docs.forEach(doc => {
+      var plan = doc.data().tipopacote;
+
+      if(plan == "Pacote Básico"){
+        ++basicPlan;
+      }
+
+      if(plan == "Pacote Gold"){
+        ++goldPlan;
+      }
+
+      if(plan == "Pacote Platina"){
+        ++platinunPlan;
+      }
+
+    })
+
+    var basicIncome = (basicPlan * 100);
+    var goldIncome = (goldPlan * 150);
+    var platinunIncome = (platinunPlan * 300);
+    var totalIncome = basicIncome + goldIncome + platinunIncome;
+
+    const NumberOfCustomers = document.querySelector('#NumberOfCustomers');
+
+    let div1 = document.createElement('div');
+    let title1 = document.createElement('h2');
+    let field1 = document.createElement('p');
+  
+    title1.textContent = "Receita proveniente do plano básico:"
+    field1.textContent = "R$ " + basicIncome;
+  
+    div1.appendChild(title1);
+    div1.appendChild(field1);
+  
+    NumberOfCustomers.appendChild(div1);
+
+    let div2 = document.createElement('div');
+    let title2 = document.createElement('h2');
+    let field2 = document.createElement('p');
+  
+    title2.textContent = "Receita proveniente do plano gold:"
+    field2.textContent = "R$ " + goldIncome;
+  
+    div2.appendChild(title2);
+    div2.appendChild(field2);
+  
+    NumberOfCustomers.appendChild(div2);
+
+    let div3 = document.createElement('div');
+    let title3 = document.createElement('h2');
+    let field3 = document.createElement('p');
+  
+    title3.textContent = "Receita proveniente do plano platina:"
+    field3.textContent = "R$ " + platinunIncome;
+  
+    div3.appendChild(title3);
+    div3.appendChild(field3);
+  
+    NumberOfCustomers.appendChild(div3);
+
+    let div4 = document.createElement('div');
+    let title4 = document.createElement('h2');
+    let field4 = document.createElement('p');
+  
+    title4.textContent = "Receita total mensal:"
+    field4.textContent = "R$ " + totalIncome;
+  
+    div4.appendChild(title4);
+    div4.appendChild(field4);
+  
+    NumberOfCustomers.appendChild(div4);
 
   })
 }
