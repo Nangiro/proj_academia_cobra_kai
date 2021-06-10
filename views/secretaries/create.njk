@@ -1,13 +1,13 @@
 <html>
     <head>
         <link rel="stylesheet" href="/styles.css">
-        <title>Cobra Kai - Cadastro de Secretaria</title>
+        <title>Cobra Kai - Cadastrar Secretaria</title>
         <meta name="description" content="Cobra Kai - Novo Adm" />
     </head>
 
     <body>
-        <div class="LogoContainer">
-            <img src="/assets/CobraKailogo.png" alt="Cobra Kai Logo">
+        <div class="PageTitle">
+            Cadastrar nova secretaria
         </div>
         
         <form class="FormSection" id="signupForm">
@@ -111,10 +111,12 @@
                 >
             </div>
 
+        </form>
+        
+        <div class="botbt">
             <button type="button" onclick="createNewSecretary()">Cadastrar</button>
             <button type="button" class="cancelBt" onclick='window.location.href = "/menu"'>Cancelar</button>
-        </form>
-
+        </div>
         
         <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-auth.js"></script>

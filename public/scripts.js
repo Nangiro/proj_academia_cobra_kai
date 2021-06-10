@@ -820,6 +820,7 @@ function knowClientList() {
 
   var countNewStudents = 0;
   var countAllStudents = 0;
+  var defaulter = 0;
 
   var currentDate = new Date();
   var currentMonth = currentDate.getMonth();
@@ -836,6 +837,12 @@ function knowClientList() {
       if(currentMonth == stMonth){
         ++countNewStudents;
       }
+
+      var isDefaulter = doc.data().situacaofinanc;
+      if (isDefaulter == "Inadimplente"){
+        ++defaulter;
+      }
+
     })
 
     const NumberOfCustomers = document.querySelector('#NumberOfCustomers');
@@ -864,6 +871,18 @@ function knowClientList() {
   
     NumberOfCustomers.appendChild(div2);
 
+    let div3 = document.createElement('div');
+    let title3 = document.createElement('h2');
+    let field3 = document.createElement('p')
+  
+    title3.textContent = "Total de alunos inadimplentes:"
+    field3.textContent = defaulter;
+  
+    div3.appendChild(title3);
+    div3.appendChild(field3);
+  
+    NumberOfCustomers.appendChild(div3);
+
   })
 }
 
@@ -874,22 +893,29 @@ function financialStatements() {
   var basicPlan = 0;
   var goldPlan = 0;
   var platinunPlan = 0;
+  var defaulter = 0;
 
 
   db.collection('Alunos').get().then((snapshot)=> {
     snapshot.docs.forEach(doc => {
       var plan = doc.data().tipopacote;
+      var isDefaulter = doc.data().situacaofinanc
 
-      if(plan == "Pacote Básico"){
-        ++basicPlan;
-      }
+      if (isDefaulter == "Ok"){
+        if(plan == "Pacote Básico"){
+          ++basicPlan;
+        }
+  
+        if(plan == "Pacote Gold"){
+          ++goldPlan;
+        }
+  
+        if(plan == "Pacote Platina"){
+          ++platinunPlan;
+        }
 
-      if(plan == "Pacote Gold"){
-        ++goldPlan;
-      }
-
-      if(plan == "Pacote Platina"){
-        ++platinunPlan;
+      } else {
+        ++defaulter;
       }
 
     })
@@ -948,6 +974,18 @@ function financialStatements() {
     div4.appendChild(field4);
   
     NumberOfCustomers.appendChild(div4);
+
+    let div5 = document.createElement('div');
+    let title5 = document.createElement('h2');
+    let field5 = document.createElement('p');
+  
+    title5.textContent = "Alunos inadimplentes:"
+    field5.textContent = defaulter + " alunos";
+  
+    div5.appendChild(title5);
+    div5.appendChild(field5);
+  
+    NumberOfCustomers.appendChild(div5);
 
   })
 }

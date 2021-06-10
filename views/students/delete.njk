@@ -1,13 +1,13 @@
 <html>
     <head>
         <link rel="stylesheet" href="/styles.css">
-        <title>Cobra Kai</title>
+        <title>Cobra Kai - Excluir aluno</title>
         <meta name="description" content="Cobra Kai - Novo Adm" />
     </head>
 
     <body>
-        <div class="HeaderContainer">
-            <h1>Excluir Aluno</h1>
+        <div class="PageTitle">
+            Excluir aluno
         </div>
 
         <div class="searchInput">
@@ -18,15 +18,16 @@
                     placeholder="Digite o CPF do aluno. Ex: 111.222.333-44"
             >
                 <button type="button" onclick="searchForStudent()">Buscar Aluno</button>
-                <button type="button" class="cancelBt" onclick='window.location.href = "/menu"'>Voltar ao menu</button>
+                <button type="button" class="cancelBt" onclick='window.location.href = "/menu"'>Voltar ao Menu</button>
         </div>
         
         <div class="content">
             <form id="studentForm"></form>
-
-            <button type="button" class="deleteBt" onclick="deleteStudent()">Excluir Aluno</button>
         </div>
         
+        <div class="botbt">
+            <button type="button" class="deleteBt" onclick="deleteStudent()">Excluir Aluno</button>
+        </div>
 
         <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-auth.js"></script>
