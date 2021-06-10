@@ -201,6 +201,7 @@ var firebaseConfig = {
         document.getElementById("nascField").value= doc.data().datanascimento;
         document.getElementById("faixaField").value= doc.data().faixaatual;
         document.getElementById("pacoteField").value= doc.data().tipopacote;
+        document.getElementById("financialField").value= doc.data().situacaofinanc;
       })
     })
   }
@@ -254,11 +255,15 @@ var firebaseConfig = {
           datanascimento: signupForm['nascField'].value,
           faixaatual: signupForm['faixaField'].value,
           tipopacote: signupForm['pacoteField'].value,
+          situacaofinanc: signupForm['financialField'].value,
         })
 
       })
     }).then(()=>{
       window.alert("Dados atualizados com sucesso");
+      setTimeout(() => {
+        window.location.href = "/" 
+      }, 2500);
     })
   }
 
